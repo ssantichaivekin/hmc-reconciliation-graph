@@ -1,4 +1,7 @@
-
+'''
+First written by Dennis Wang,
+modified by Santi Santichaivekin (Feb 28, 19).
+'''
 
 import networkx as nx
 
