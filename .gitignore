@@ -2,3 +2,5 @@ graphs/*
 TreeLifeData/*
 example*
 .vscode
+.DS_Store
+**.newick
