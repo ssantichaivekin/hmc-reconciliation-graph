@@ -1,5 +1,6 @@
 '''
-Generating Tests for Reconciliation Graphs
+Generates newickhost trees, parasite trees, and 
+mappings.
 '''
 
 import itertools

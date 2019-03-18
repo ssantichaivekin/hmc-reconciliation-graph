@@ -1,5 +1,8 @@
 '''
-Testing visualization
+This script tests the visualization of the reconciliation graph
+by generating one reconciliation graph by a newick tree file using DTLReconGraph.py
+functions, and then visualize it via a visualization code written by
+Dennis Wang.
 '''
 
 import DTLReconGraph
