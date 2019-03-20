@@ -4,3 +4,4 @@ example*
 .vscode
 .DS_Store
 **.newick
+*.pyc
