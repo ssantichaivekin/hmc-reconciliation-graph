@@ -179,7 +179,7 @@ if __name__ == '__main__' :
                                            False, False)
 
         if brute_force_diameter != diameter_alg_diameter :
-            outname = './errorTrees/no4-id%d.png' % file_id
+            outname = './errorTrees/no5-id%d.png' % file_id
             ReconciliationVisualization.visualizeAndSave(dtl_recon_graph, outname)
             print("ID = ", file_id)
             print("Brute Force: ", brute_force_diameter)
