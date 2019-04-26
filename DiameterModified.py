@@ -213,7 +213,6 @@ def calculate_incomparable_enter_hist(zero_loss, enter_table, u, uA, uA_loss_eve
     for event in uA_loss_events:
         a_child = event[1][1]
         hists += [enter_table[u][(u, a_child)][uB] << cost(event, zero_loss)]
-        print "Line Reached"
     for event in uB_loss_events:
         b_child = event[1][1]
         hists += [enter_table[u][uA][(u, b_child)] << cost(event, zero_loss)]
@@ -243,23 +242,20 @@ def calculate_equal_enter_hist(zero_loss, enter_table, u, uA, uA_loss_events, uB
     # Build up a list of the possible histograms of this pair of mapping nodes, so that we can find the maximum later.
     hists = [hist_both_exit]
 
-    # This finds the histograms when both nodes take losses
-    # TODO: change to remove over count in symmetric
-    # TODO: why is this not over calculating!!!?
     for a_event in uA_loss_events:
         a_child = a_event[1][1]
         for b_event in uB_loss_events:
             b_child = b_event[1][1]
-            # Modified to account for unsymmetric
-            # print a_event, b_event
-            # if b_event > a_event:
-            #     print "overcalculating in equal enter"
-            #     continue
-            hists += [enter_table[u][(u, a_child)][(u, b_child)]]
+            # TODO: make sure that this is actually correct
+            if a_child < b_child:
+                hists.append(enter_table[u][(u, a_child)][(u, b_child)] << 2)
+            elif a_child == b_child:
+                hists.append(enter_table[u][(u, a_child)][(u, b_child)])
+            
 
     for event in uA_loss_events:
         a_child = event[1][1]
-        hists += [exit_table_b[u][uB][(u, a_child)] << cost(event, zero_loss)]
+        hists.append(exit_table_b[u][uB][(u, a_child)] << cost(event, zero_loss))
     return Histogram.sum(hists)
 
 

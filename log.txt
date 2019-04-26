@@ -38,16 +38,12 @@ ID =  25
 mpr 1
 ID =  26
 mpr 4
-Line Reached
 ID =  27
 mpr 4
-Line Reached
 ID =  28
 mpr 4
-Line Reached
 ID =  29
 mpr 4
-Line Reached
 ID =  30
 mpr 1
 ID =  31
@@ -498,20 +494,16 @@ ID =  253
 mpr 1
 ID =  254
 mpr 6
-Line Reached
 ID =  255
 mpr 6
-Line Reached
 ID =  256
 mpr 8
-Line Reached
 ID =  256
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
 Diameter Alg:  {0: 8, 2: 2, 4: 7, 6: 4, 8: 8, 10: 4} pairs:  25
 ID =  257
 mpr 8
-Line Reached
 ID =  257
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
@@ -522,20 +514,16 @@ ID =  259
 mpr 1
 ID =  260
 mpr 6
-Line Reached
 ID =  261
 mpr 6
-Line Reached
 ID =  262
 mpr 8
-Line Reached
 ID =  262
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
 Diameter Alg:  {0: 8, 2: 2, 4: 7, 6: 4, 8: 8, 10: 4} pairs:  25
 ID =  263
 mpr 8
-Line Reached
 ID =  263
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
@@ -570,20 +558,16 @@ ID =  277
 mpr 1
 ID =  278
 mpr 6
-Line Reached
 ID =  279
 mpr 6
-Line Reached
 ID =  280
 mpr 8
-Line Reached
 ID =  280
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
 Diameter Alg:  {0: 8, 2: 2, 4: 7, 6: 4, 8: 8, 10: 4} pairs:  25
 ID =  281
 mpr 8
-Line Reached
 ID =  281
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
@@ -594,20 +578,16 @@ ID =  283
 mpr 1
 ID =  284
 mpr 6
-Line Reached
 ID =  285
 mpr 6
-Line Reached
 ID =  286
 mpr 8
-Line Reached
 ID =  286
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
 Diameter Alg:  {0: 8, 2: 2, 4: 7, 6: 4, 8: 8, 10: 4} pairs:  25
 ID =  287
 mpr 8
-Line Reached
 ID =  287
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
@@ -810,60 +790,44 @@ ID =  385
 mpr 1
 ID =  386
 mpr 4
-Line Reached
 ID =  387
 mpr 4
-Line Reached
 ID =  388
 mpr 4
-Line Reached
 ID =  389
 mpr 4
-Line Reached
 ID =  390
 mpr 1
 ID =  391
 mpr 1
 ID =  392
 mpr 4
-Line Reached
 ID =  393
 mpr 4
-Line Reached
 ID =  394
 mpr 4
-Line Reached
 ID =  395
 mpr 4
-Line Reached
 ID =  396
 mpr 4
-Line Reached
 ID =  397
 mpr 4
-Line Reached
 ID =  398
 mpr 4
-Line Reached
 ID =  399
 mpr 4
-Line Reached
 ID =  400
 mpr 1
 ID =  401
 mpr 1
 ID =  402
 mpr 4
-Line Reached
 ID =  403
 mpr 4
-Line Reached
 ID =  404
 mpr 4
-Line Reached
 ID =  405
 mpr 4
-Line Reached
 ID =  406
 mpr 1
 ID =  407
@@ -1018,108 +982,44 @@ ID =  481
 mpr 1
 ID =  482
 mpr 3
-ID =  482
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  483
 mpr 3
-ID =  483
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  484
 mpr 3
-ID =  484
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  485
 mpr 3
-ID =  485
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  486
 mpr 1
 ID =  487
 mpr 1
 ID =  488
 mpr 3
-ID =  488
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  489
 mpr 3
-ID =  489
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  490
 mpr 3
-ID =  490
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  491
 mpr 3
-ID =  491
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  492
 mpr 3
-ID =  492
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  493
 mpr 3
-ID =  493
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  494
 mpr 3
-ID =  494
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  495
 mpr 3
-ID =  495
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  496
 mpr 1
 ID =  497
 mpr 1
 ID =  498
 mpr 3
-ID =  498
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  499
 mpr 3
-ID =  499
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  500
 mpr 3
-ID =  500
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  501
 mpr 3
-ID =  501
-Expected pairs  3
-Brute Force:  {0: 3, 8: 1, 11: 2} pairs:  3
-Diameter Alg:  {0: 3, 11: 2, 6: 2} pairs:  4
 ID =  502
 mpr 1
 ID =  503
@@ -1802,60 +1702,44 @@ ID =  841
 mpr 1
 ID =  842
 mpr 3
-Line Reached
 ID =  843
 mpr 3
-Line Reached
 ID =  844
 mpr 3
-Line Reached
 ID =  845
 mpr 3
-Line Reached
 ID =  846
 mpr 1
 ID =  847
 mpr 1
 ID =  848
 mpr 3
-Line Reached
 ID =  849
 mpr 3
-Line Reached
 ID =  850
 mpr 3
-Line Reached
 ID =  851
 mpr 3
-Line Reached
 ID =  852
 mpr 3
-Line Reached
 ID =  853
 mpr 3
-Line Reached
 ID =  854
 mpr 3
-Line Reached
 ID =  855
 mpr 3
-Line Reached
 ID =  856
 mpr 1
 ID =  857
 mpr 1
 ID =  858
 mpr 3
-Line Reached
 ID =  859
 mpr 3
-Line Reached
 ID =  860
 mpr 3
-Line Reached
 ID =  861
 mpr 3
-Line Reached
 ID =  862
 mpr 1
 ID =  863
@@ -1866,16 +1750,12 @@ ID =  865
 mpr 1
 ID =  866
 mpr 3
-Line Reached
 ID =  867
 mpr 3
-Line Reached
 ID =  868
 mpr 3
-Line Reached
 ID =  869
 mpr 3
-Line Reached
 ID =  870
 mpr 1
 ID =  871
@@ -1918,16 +1798,12 @@ ID =  889
 mpr 1
 ID =  890
 mpr 3
-Line Reached
 ID =  891
 mpr 3
-Line Reached
 ID =  892
 mpr 3
-Line Reached
 ID =  893
 mpr 3
-Line Reached
 ID =  894
 mpr 1
 ID =  895
@@ -1966,16 +1842,12 @@ ID =  911
 mpr 4
 ID =  912
 mpr 3
-Line Reached
 ID =  913
 mpr 3
-Line Reached
 ID =  914
 mpr 3
-Line Reached
 ID =  915
 mpr 3
-Line Reached
 ID =  916
 mpr 1
 ID =  917
@@ -2018,16 +1890,12 @@ ID =  935
 mpr 1
 ID =  936
 mpr 3
-Line Reached
 ID =  937
 mpr 3
-Line Reached
 ID =  938
 mpr 3
-Line Reached
 ID =  939
 mpr 3
-Line Reached
 ID =  940
 mpr 1
 ID =  941
@@ -2098,52 +1966,40 @@ ID =  973
 mpr 1
 ID =  974
 mpr 6
-Line Reached
-Line Reached
 ID =  974
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  975
 mpr 6
-Line Reached
-Line Reached
 ID =  975
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  976
 mpr 5
-Line Reached
 ID =  977
 mpr 5
-Line Reached
 ID =  978
 mpr 1
 ID =  979
 mpr 1
 ID =  980
 mpr 6
-Line Reached
-Line Reached
 ID =  980
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  981
 mpr 6
-Line Reached
-Line Reached
 ID =  981
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  982
 mpr 5
-Line Reached
 ID =  983
 mpr 5
-Line Reached
 ID =  984
 mpr 1
 ID =  985
@@ -2174,52 +2030,40 @@ ID =  997
 mpr 1
 ID =  998
 mpr 6
-Line Reached
-Line Reached
 ID =  998
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  999
 mpr 6
-Line Reached
-Line Reached
 ID =  999
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1000
 mpr 5
-Line Reached
 ID =  1001
 mpr 5
-Line Reached
 ID =  1002
 mpr 1
 ID =  1003
 mpr 1
 ID =  1004
 mpr 6
-Line Reached
-Line Reached
 ID =  1004
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1005
 mpr 6
-Line Reached
-Line Reached
 ID =  1005
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1006
 mpr 5
-Line Reached
 ID =  1007
 mpr 5
-Line Reached
 ID =  1008
 mpr 2
 ID =  1009
@@ -2274,52 +2118,40 @@ ID =  1033
 mpr 1
 ID =  1034
 mpr 6
-Line Reached
-Line Reached
 ID =  1034
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1035
 mpr 6
-Line Reached
-Line Reached
 ID =  1035
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1036
 mpr 5
-Line Reached
 ID =  1037
 mpr 5
-Line Reached
 ID =  1038
 mpr 1
 ID =  1039
 mpr 1
 ID =  1040
 mpr 6
-Line Reached
-Line Reached
 ID =  1040
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1041
 mpr 6
-Line Reached
-Line Reached
 ID =  1041
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1042
 mpr 5
-Line Reached
 ID =  1043
 mpr 5
-Line Reached
 ID =  1044
 mpr 1
 ID =  1045
@@ -2350,52 +2182,40 @@ ID =  1057
 mpr 1
 ID =  1058
 mpr 6
-Line Reached
-Line Reached
 ID =  1058
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1059
 mpr 6
-Line Reached
-Line Reached
 ID =  1059
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1060
 mpr 5
-Line Reached
 ID =  1061
 mpr 5
-Line Reached
 ID =  1062
 mpr 1
 ID =  1063
 mpr 1
 ID =  1064
 mpr 6
-Line Reached
-Line Reached
 ID =  1064
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1065
 mpr 6
-Line Reached
-Line Reached
 ID =  1065
 Expected pairs  15
 Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
 Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1066
 mpr 5
-Line Reached
 ID =  1067
 mpr 5
-Line Reached
 ID =  1068
 mpr 1
 ID =  1069
