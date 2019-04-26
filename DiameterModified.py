@@ -4,39 +4,39 @@ from collections import OrderedDict
 from itertools import product
 from Histogram import Histogram
 
-def reformat_tree(tree, root):
-    """A recursive function that changes the format of a (species or gene) tree from edge to vertex, as described
-    above. It returns the tree (in postorder), the root of the tree, and the number of nodes in the tree. The base
-    case of this function is when there are no children for a given root.
-    :param tree:        A tree in edge format
-    :param root:        The root of that tree
-    :return:            0: The new vertex based tree,
-                        1: The root of that tree, and
-                        2: The number of nodes in that tree. """
+# def reformat_tree(tree, root):
+#     """A recursive function that changes the format of a (species or gene) tree from edge to vertex, as described
+#     above. It returns the tree (in postorder), the root of the tree, and the number of nodes in the tree. The base
+#     case of this function is when there are no children for a given root.
+#     :param tree:        A tree in edge format
+#     :param root:        The root of that tree
+#     :return:            0: The new vertex based tree,
+#                         1: The root of that tree, and
+#                         2: The number of nodes in that tree. """
 
-    # This line catches the "xTop" handle and replaces
-    new_root = root[1] if isinstance(root, tuple) else tree[root][1]
+#     # This line catches the "xTop" handle and replaces
+#     new_root = root[1] if isinstance(root, tuple) else tree[root][1]
 
-    child1 = tree[root][2][1] if tree[root][2] is not None else None  # These lines handle the leaves, where
-    child2 = tree[root][3][1] if tree[root][3] is not None else None  # there is None in the place of a tuple
+#     child1 = tree[root][2][1] if tree[root][2] is not None else None  # These lines handle the leaves, where
+#     child2 = tree[root][3][1] if tree[root][3] is not None else None  # there is None in the place of a tuple
 
-    # This is the tree that we will be returning. We will add the subtrees of our children first, then add this node.
-    new_vertex_tree = OrderedDict()  # This has to be an OrderedDict, otherwise we can't guarantee it's in postorder
+#     # This is the tree that we will be returning. We will add the subtrees of our children first, then add this node.
+#     new_vertex_tree = OrderedDict()  # This has to be an OrderedDict, otherwise we can't guarantee it's in postorder
 
-    # This is the number of nodes in the subtree rooted at each of our children
-    # We actually don't need to calculate this here at all, since the count will just be the length of new_vertex_tree
-    child1_count = 0
-    child2_count = 0
+#     # This is the number of nodes in the subtree rooted at each of our children
+#     # We actually don't need to calculate this here at all, since the count will just be the length of new_vertex_tree
+#     child1_count = 0
+#     child2_count = 0
 
-    if child1 is not None:  # If this node has children, then we need to add their children's subtrees to the dict
-        child1_tree, _, child1_count = reformat_tree(tree, tree[root][2])
-        new_vertex_tree.update(child1_tree)
-    if child2 is not None:
-        child2_tree, _, child2_count = reformat_tree(tree, tree[root][3])
-        new_vertex_tree.update(child2_tree)
-    new_vertex_tree.update({new_root: (child1, child2)})  # We add this node last, to ensure postorderness.
+#     if child1 is not None:  # If this node has children, then we need to add their children's subtrees to the dict
+#         child1_tree, _, child1_count = reformat_tree(tree, tree[root][2])
+#         new_vertex_tree.update(child1_tree)
+#     if child2 is not None:
+#         child2_tree, _, child2_count = reformat_tree(tree, tree[root][3])
+#         new_vertex_tree.update(child2_tree)
+#     new_vertex_tree.update({new_root: (child1, child2)})  # We add this node last, to ensure postorderness.
 
-    return new_vertex_tree, new_root, (child1_count + child2_count + 1)
+#     return new_vertex_tree, new_root, (child1_count + child2_count + 1)
 
 
 def intersect_cost(event):
@@ -165,6 +165,10 @@ def calculate_hist_both_exit(zero_loss, enter_table, u, gene_tree, uA, dtl_recon
             for e_b in uB_exit_events:
                 # B1 and B2 are the species nodes of the two mapping nodes of e_b
                 # We need to account for the case that the children of u are in opposite order between the two events
+
+                # TODO: Note sure whether we will need to do this:
+                if uA == uB and e_b > e_a:
+                    continue
                 if child1 == e_b[1][0]:
                     B1 = e_b[1][1]
                     B2 = e_b[2][1]
@@ -181,9 +185,9 @@ def calculate_hist_both_exit(zero_loss, enter_table, u, gene_tree, uA, dtl_recon
 
                 this_hist = enter_table[child1][u1A][u1B] * enter_table[child2][u2A][u2B]
                 if e_a != e_b:
-                    this_hist << (cost(e_a, zero_loss) + cost(e_b, zero_loss))
+                    this_hist = this_hist << (cost(e_a, zero_loss) + cost(e_b, zero_loss))
                 else:
-                    this_hist << intersect_cost(0)
+                    this_hist = this_hist << intersect_cost(0)
 
                 hist_both_exit = hist_both_exit + this_hist
 
@@ -209,6 +213,7 @@ def calculate_incomparable_enter_hist(zero_loss, enter_table, u, uA, uA_loss_eve
     for event in uA_loss_events:
         a_child = event[1][1]
         hists += [enter_table[u][(u, a_child)][uB] << cost(event, zero_loss)]
+        print "Line Reached"
     for event in uB_loss_events:
         b_child = event[1][1]
         hists += [enter_table[u][uA][(u, b_child)] << cost(event, zero_loss)]
@@ -239,19 +244,22 @@ def calculate_equal_enter_hist(zero_loss, enter_table, u, uA, uA_loss_events, uB
     hists = [hist_both_exit]
 
     # This finds the histograms when both nodes take losses
+    # TODO: change to remove over count in symmetric
+    # TODO: why is this not over calculating!!!?
     for a_event in uA_loss_events:
         a_child = a_event[1][1]
         for b_event in uB_loss_events:
             b_child = b_event[1][1]
+            # Modified to account for unsymmetric
+            # print a_event, b_event
+            # if b_event > a_event:
+            #     print "overcalculating in equal enter"
+            #     continue
             hists += [enter_table[u][(u, a_child)][(u, b_child)]]
 
-    # These find the histograms when only one node takes a loss
     for event in uA_loss_events:
         a_child = event[1][1]
         hists += [exit_table_b[u][uB][(u, a_child)] << cost(event, zero_loss)]
-    for event in uB_loss_events:
-        b_child = event[1][1]
-        hists += [exit_table_a[u][uA][(u, b_child)] << cost(event, zero_loss)]
     return Histogram.sum(hists)
 
 
@@ -318,7 +326,7 @@ def calculate_ancestral_enter_hist(zero_loss, is_swapped, enter_table, u, uA, uA
         enter_hists = [exit_table_b[u][uB][uA]]
         for event in uB_loss_events:
             b_child = event[1][1]
-            enter_hists += [enter_table[u][uA][(u, b_child)] + cost(event, zero_loss)]
+            enter_hists += [enter_table[u][uA][(u, b_child)] << cost(event, zero_loss)]
         return Histogram.sum(enter_hists)
 
 
@@ -424,12 +432,14 @@ def diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph_
         print ""
         print "Exit Table B: {0}".format(exit_table_b)
     # Now, the diameter of this reconciliation will be the maximum entry on the enter table.
-    diameter = 0 # TODO: << modify to use histogram
-    for uA in enter_table[gene_tree_root]: # TODO: HEY! is this overcalculating things?
+    result = Histogram(None)
+    for uA in enter_table[gene_tree_root]:
         for uB in enter_table[gene_tree_root][uA]:
-            diameter = max(diameter, enter_table[gene_tree_root][uA][uB])
+            if uB > uA :
+                continue
+            result = result + enter_table[gene_tree_root][uA][uB]
 
-    return diameter
+    return result
 
 
 def event_to_string(event):

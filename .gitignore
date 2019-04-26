@@ -5,3 +5,5 @@ example*
 .DS_Store
 **.newick
 *.pyc
+htmlcov*/**
+**/*.png

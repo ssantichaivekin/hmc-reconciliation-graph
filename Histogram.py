@@ -65,6 +65,12 @@ class Histogram:
 
         return Histogram(new_dict)
     
+    def __eq__(self, other):
+        return self.histogram_dict == other.histogram_dict
+    
+    def __ne__(self, other):
+        return not self == other
+    
     def __lshift__(self, value):
         return self.shift(value)
     
@@ -73,6 +79,9 @@ class Histogram:
     
     def __mul__(self, other):
         return self.product_combine(other)
+
+    def __repr__(self):
+        return str(self.histogram_dict)
 
  # Tests
 

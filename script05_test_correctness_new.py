@@ -12,6 +12,7 @@ import DTLReconGraph
 import ReconciliationVisualization
 import Diameter
 import DiameterModified
+from Histogram import Histogram
 
 def eventNodeType(eventNode):
     '''
@@ -119,23 +120,38 @@ def recon_trees_diff(recon_tree_A, recon_tree_B):
     
     return diff_count
 
+def count_mpr_pairs(hist) :
+    total = 0
+    hist_dict = hist.histogram_dict
+    for key in hist_dict :
+        if key >= 1:
+            total += hist_dict[key]
+    return total
 
+def calculate_n_pairs(m) :
+    return m*(m-1)/2
 
-def brute_force_find_diameter(recongraph, roots) :
+def brute_force_find_histogram(recongraph, roots) :
     '''
     Given a reconciliation graph, find the diameter of the graph via enumreating all
     its reconciliation trees.
     '''
-    max_diff_count = 0
+    hist_dict = {}
     recon_trees = [recon_tree for recon_tree, root in enumerate_recon_trees(recongraph, roots)]
-    for recon_tree_i in range(1, len(recon_trees)):
-        for recon_tree_j in range(recon_tree_i):
+    for recon_tree_i in range(0, len(recon_trees)):
+        for recon_tree_j in range(recon_tree_i+1):
             recon_tree_A = recon_trees[recon_tree_i]
             recon_tree_B = recon_trees[recon_tree_j]
             diff_count = recon_trees_diff(recon_tree_A, recon_tree_B)
-            max_diff_count = max(diff_count, max_diff_count)
+            if diff_count not in hist_dict:
+                hist_dict[diff_count] = 0
+            hist_dict[diff_count] += 1
     
-    return max_diff_count
+    return Histogram(hist_dict)
+
+def brute_force_find_diameter(recongraph, roots) :
+    hist_dict = brute_force_find_histogram(recongraph, roots).histogram_dict
+    return max(hist_dict.keys())
 
 if __name__ == '__main__' :
     import pprint
@@ -143,46 +159,52 @@ if __name__ == '__main__' :
 
     # compare size 4
     print("=== Mismatch of tree size 4 ===")
-    for file_id in range(2, 95+1):
+    for file_id in range(0, 95+1):
         edge_species_tree, edge_gene_tree, dtl_recon_graph, mpr_count, best_roots = DTLReconGraph.reconcile("./newickSample/size4/test-size4-no%d.newick" % file_id, 2, 4, 2)
         assert(mpr_count == sum(1 for _ in enumerate_recon_trees(dtl_recon_graph, best_roots)))
 
-        brute_force_diameter = brute_force_find_diameter(dtl_recon_graph, best_roots)
+        brute_force_hist = brute_force_find_histogram(dtl_recon_graph, best_roots)
         # find normal diameter
         # The gene tree needs to be in node format, not edge format, so we find that now.
         # (This also puts the gene_tree into postorder, as an ordered dict)
         gene_tree, gene_tree_root, gene_node_count = Diameter.reformat_tree(edge_gene_tree, "pTop")
 
         species_tree, species_tree_root, species_node_count = Diameter.reformat_tree(edge_species_tree, "hTop")
-        diameter_alg_diameter = Diameter.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
+        diameter_alg_hist = DiameterModified.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
                                            False, False)
 
-        if brute_force_diameter != diameter_alg_diameter :
+        if brute_force_hist != diameter_alg_hist :
             outname = './errorTrees/no4-id%d.png' % file_id
             ReconciliationVisualization.visualizeAndSave(dtl_recon_graph, outname)
             print("ID = ", file_id)
-            print("Brute Force: ", brute_force_diameter)
-            print("Diameter Alg: ", diameter_alg_diameter)
-            input()
+            print("Brute Force: ", brute_force_hist)
+            print("Diameter Alg: ", diameter_alg_hist)
+            assert(False)
     # compare size 5
     print("=== Mismatch of tree size 5 ===")
-    for file_id in range(0, 1080):
+    for file_id in range(16, 1080):
+        print "ID = ", file_id
         edge_species_tree, edge_gene_tree, dtl_recon_graph, mpr_count, best_roots = DTLReconGraph.reconcile("./newickSample/size5/test-size5-no%d.newick" % file_id, 2, 4, 2)
         assert(mpr_count == sum(1 for _ in enumerate_recon_trees(dtl_recon_graph, best_roots)))
+        print "mpr", mpr_count
 
-        brute_force_diameter = brute_force_find_diameter(dtl_recon_graph, best_roots)
+        brute_force_hist = brute_force_find_histogram(dtl_recon_graph, best_roots)
         # find normal diameter
         # The gene tree needs to be in node format, not edge format, so we find that now.
         # (This also puts the gene_tree into postorder, as an ordered dict)
         gene_tree, gene_tree_root, gene_node_count = Diameter.reformat_tree(edge_gene_tree, "pTop")
 
         species_tree, species_tree_root, species_node_count = Diameter.reformat_tree(edge_species_tree, "hTop")
-        diameter_alg_diameter = Diameter.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
+        diameter_alg_hist = DiameterModified.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
                                            False, False)
 
-        if brute_force_diameter != diameter_alg_diameter :
+        if brute_force_hist != diameter_alg_hist :
             outname = './errorTrees/no5-id%d.png' % file_id
             ReconciliationVisualization.visualizeAndSave(dtl_recon_graph, outname)
-            print("ID = ", file_id)
-            print("Brute Force: ", brute_force_diameter)
-            print("Diameter Alg: ", diameter_alg_diameter)
+            expected_n_pairs = calculate_n_pairs(mpr_count)
+            brute_force_n_pairs = count_mpr_pairs(brute_force_hist)
+            diag_force_n_pairs = count_mpr_pairs(diameter_alg_hist)
+            print "ID = ", file_id
+            print "Expected pairs ", expected_n_pairs
+            print "Brute Force: ", brute_force_hist, "pairs: ", brute_force_n_pairs
+            print "Diameter Alg: ", diameter_alg_hist, "pairs: ", diag_force_n_pairs
