@@ -174,12 +174,11 @@ if __name__ == '__main__' :
                                            False, False)
 
         if brute_force_hist != diameter_alg_hist :
-            outname = './errorTrees/no4-id%d.png' % file_id
+            outname = './errorTrees/no4-id%d-%d%d%d.png' % (file_id, 2, 4, 2)
             ReconciliationVisualization.visualizeAndSave(dtl_recon_graph, outname)
             print("ID = ", file_id)
             print("Brute Force: ", brute_force_hist)
             print("Diameter Alg: ", diameter_alg_hist)
-            assert(False)
     # compare size 5
     print("=== Mismatch of tree size 5 ===")
     for file_id in range(16, 1080):
@@ -199,7 +198,7 @@ if __name__ == '__main__' :
                                            False, False)
 
         if brute_force_hist != diameter_alg_hist :
-            outname = './errorTrees/no5-id%d.png' % file_id
+            outname = './errorTrees/no5-id%d-%d%d%d.png' % (file_id, 2, 4, 2)
             ReconciliationVisualization.visualizeAndSave(dtl_recon_graph, outname)
             expected_n_pairs = calculate_n_pairs(mpr_count)
             brute_force_n_pairs = count_mpr_pairs(brute_force_hist)

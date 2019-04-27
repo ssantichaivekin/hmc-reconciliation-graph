@@ -328,7 +328,7 @@ def calculate_equal_enter_score(zero_loss, enter_table, u, uA, uA_loss_events, u
         a_child = a_event[1][1]
         for b_event in uB_loss_events:
             b_child = b_event[1][1]
-            scores += [enter_table[u][(u, a_child)][(u, b_child)]]
+            scores += [enter_table[u][(u, a_child)][(u, b_child)] + cost(a_event, zero_loss) + cost(b_event, zero_loss)]
 
     # These find the scores when only one node takes a loss
     for event in uA_loss_events:

@@ -47,7 +47,10 @@ class Histogram:
         '''
         {0:1} * {3:1}  => {3:1}
         {0:1, 2:1} * {3:1}  => {3:1. 5:1}
-        {0:1, 2:1} * {3:1, 5:2}  => {3:1. 5:3, 7:2}
+        {0:1, 2:1} * {3:1, 5:2}  => {3:1, 5:3, 7:2}
+        #TODO: Update the documentation
+               We multiply the value by 2 if it's not
+               doing anything with a 0 key.
         '''
         new_dict = {}
 
@@ -61,7 +64,10 @@ class Histogram:
                 new_key = old_key_A + old_key_B
                 if new_key not in new_dict:
                     new_dict[new_key] = 0
-                new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B]
+                if old_key_A == 0 or old_key_B == 0:
+                    new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B]
+                else:
+                    new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B] * 2
 
         return Histogram(new_dict)
     

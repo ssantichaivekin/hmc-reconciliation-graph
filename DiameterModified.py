@@ -166,7 +166,6 @@ def calculate_hist_both_exit(zero_loss, enter_table, u, gene_tree, uA, dtl_recon
                 # B1 and B2 are the species nodes of the two mapping nodes of e_b
                 # We need to account for the case that the children of u are in opposite order between the two events
 
-                # TODO: Note sure whether we will need to do this:
                 if uA == uB and e_b > e_a:
                     continue
                 if child1 == e_b[1][0]:
@@ -182,8 +181,13 @@ def calculate_hist_both_exit(zero_loss, enter_table, u, gene_tree, uA, dtl_recon
                 u2B = (child2, B2)
                 # If the histogram of this iteration's double exit is better than the old one, then the old one will
                 # supersede this one
-
-                this_hist = enter_table[child1][u1A][u1B] * enter_table[child2][u2A][u2B]
+                left_entry = enter_table[child1][u1A][u1B]
+                right_entry = enter_table[child2][u2A][u2B]
+                this_hist = left_entry * right_entry
+                # TODO: I think you also have to check the original node
+                #       in addition to the event (?) (yes, see line 170)
+                #       I think this has been working just by pure luck!!!
+                # It should be, if the event OR the original node mismatches (See SIZE4, ID2, 242)
                 if e_a != e_b:
                     this_hist = this_hist << (cost(e_a, zero_loss) + cost(e_b, zero_loss))
                 else:
@@ -433,8 +437,8 @@ def diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph_
         for uB in enter_table[gene_tree_root][uA]:
             if uB > uA :
                 continue
-            result = result + enter_table[gene_tree_root][uA][uB]
-
+            entry = enter_table[gene_tree_root][uA][uB]
+            result = result + entry
     return result
 
 
