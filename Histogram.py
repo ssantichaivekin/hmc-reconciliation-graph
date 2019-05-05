@@ -43,14 +43,16 @@ class Histogram:
                 new_dict[key] += hist.histogram_dict[key]
         return Histogram(new_dict)
     
-    def product_combine(self, other):
+    def product_combine(self, other, doubleNonzeroEntry):
         '''
+        Generally, combine would work like this:
         {0:1} * {3:1}  => {3:1}
         {0:1, 2:1} * {3:1}  => {3:1. 5:1}
         {0:1, 2:1} * {3:1, 5:2}  => {3:1, 5:3, 7:2}
-        #TODO: Update the documentation
-               We multiply the value by 2 if it's not
-               doing anything with a 0 key.
+        However, if the original histograms are from
+        the same mapping node, we multiply the number of
+        histograms by 2 if the indeces are not 0.
+
         '''
         new_dict = {}
 
@@ -64,10 +66,11 @@ class Histogram:
                 new_key = old_key_A + old_key_B
                 if new_key not in new_dict:
                     new_dict[new_key] = 0
-                if old_key_A == 0 or old_key_B == 0:
-                    new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B]
-                else:
+                if doubleNonzeroEntry and old_key_A != 0 and old_key_B != 0:
                     new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B] * 2
+                else:
+                    new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B]
+
 
         return Histogram(new_dict)
     
@@ -84,7 +87,7 @@ class Histogram:
         return self.combine(other)
     
     def __mul__(self, other):
-        return self.product_combine(other)
+        raise DeprecationWarning("Use self.product_combine(other, isSameMappingNode) instead")
 
     def __repr__(self):
         return str(self.histogram_dict)

@@ -183,7 +183,8 @@ def calculate_hist_both_exit(zero_loss, enter_table, u, gene_tree, uA, dtl_recon
                 # supersede this one
                 left_entry = enter_table[child1][u1A][u1B]
                 right_entry = enter_table[child2][u2A][u2B]
-                this_hist = left_entry * right_entry
+                doubleNonzeroEntry = uA == uB and e_a == e_b
+                this_hist = left_entry.product_combine(right_entry, doubleNonzeroEntry)
                 # TODO: I think you also have to check the original node
                 #       in addition to the event (?) (yes, see line 170)
                 #       I think this has been working just by pure luck!!!
