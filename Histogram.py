@@ -1,3 +1,10 @@
+# Histogram class for Histogram Algorithm
+#
+# Extension of the diameter algorithm.
+#
+# Author: Santi Santichaivekin (working under Ran Libeskind-Hadas)
+
+
 class Histogram:
     def __init__(self, init):
         '''
