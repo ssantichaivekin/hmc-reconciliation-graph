@@ -19,7 +19,7 @@ if __name__ == '__main__' :
     species_tree, species_tree_root, species_node_count = Diameter.reformat_tree(edge_species_tree, "hTop")
     diameter_alg_diameter = Diameter.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
                                         False, False)
-    diameter_alg_histogram = DiameterModified.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
+    diameter_alg_histogram = HistogramAlg.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
                                         False, False)
     assert(brute_force_diameter == diameter_alg_diameter)
     assert(brute_force_histogram == diameter_alg_histogram)

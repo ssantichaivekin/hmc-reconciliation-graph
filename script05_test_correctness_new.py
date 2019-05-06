@@ -11,7 +11,7 @@ of each.
 import DTLReconGraph
 import ReconciliationVisualization
 import Diameter
-import DiameterModified
+import HistogramAlg
 from Histogram import Histogram
 
 def eventNodeType(eventNode):
@@ -170,7 +170,7 @@ if __name__ == '__main__' :
         gene_tree, gene_tree_root, gene_node_count = Diameter.reformat_tree(edge_gene_tree, "pTop")
 
         species_tree, species_tree_root, species_node_count = Diameter.reformat_tree(edge_species_tree, "hTop")
-        diameter_alg_hist = DiameterModified.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
+        diameter_alg_hist = HistogramAlg.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
                                            False, False)
 
         if brute_force_hist != diameter_alg_hist :
@@ -194,7 +194,7 @@ if __name__ == '__main__' :
         gene_tree, gene_tree_root, gene_node_count = Diameter.reformat_tree(edge_gene_tree, "pTop")
 
         species_tree, species_tree_root, species_node_count = Diameter.reformat_tree(edge_species_tree, "hTop")
-        diameter_alg_hist = DiameterModified.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
+        diameter_alg_hist = HistogramAlg.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
                                            False, False)
 
         if brute_force_hist != diameter_alg_hist :

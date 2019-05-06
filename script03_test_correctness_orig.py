@@ -11,7 +11,7 @@ of each.
 import DTLReconGraph
 import ReconciliationVisualization
 import Diameter
-import DiameterModified
+import HistogramAlg
 
 def eventNodeType(eventNode):
     '''

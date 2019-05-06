@@ -12,7 +12,7 @@ if __name__ == '__main__' :
     
     diameter_alg_diameter = Diameter.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
                                         True, False)
-    diameter_alg_hist = DiameterModified.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
+    diameter_alg_hist = HistogramAlg.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
                                         True, False)
 
     brute_force_hist = brute_force_find_histogram(dtl_recon_graph, best_roots)
