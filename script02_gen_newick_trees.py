@@ -1,6 +1,12 @@
 '''
-Generates newickhost trees, parasite trees, and 
-mappings.
+This script generates all possible (1) newick host tree 
+(2) newick parasite tree and (3) mapping from host to 
+parasite.
+
+This script will save the outputs as a .newick files
+in the specified folder.
+
+Author: Santi Santichaivekin
 '''
 
 import itertools
@@ -24,6 +30,10 @@ def generateTreeTuples(numLeaves, prefix, startNum):
                 yield (root, leftTreeTuple, rightTreeTuple)
 
 def treeTupleStrings(treeTuple):
+    '''
+    Convert a python representation of tree to a string in
+    newick format.
+    '''
     if type(treeTuple) is str :
         return treeTuple
     else :
@@ -34,6 +44,9 @@ def treeTupleStrings(treeTuple):
             )
 
 def treeTupleLeaves(treeTuple):
+    '''
+    Return the list of leaves of the tree.
+    '''
     if type(treeTuple) is str :
         leaves = [treeTuple]
         return leaves
@@ -45,6 +58,10 @@ def treeTupleLeaves(treeTuple):
         return leaves
 
 def generateMappings(parasiteLeaves, hostLeaves):
+    '''
+    Return an iterator to all possible mappings
+    from the parasite leaves to host leaves.
+    '''
     for hostLeavesPermuted in itertools.permutations(hostLeaves) :
         yield list(zip(parasiteLeaves, hostLeavesPermuted))
 
@@ -76,11 +93,7 @@ def generateNewickTests(numLeaves, destFolderName):
                 filenum += 1
                 
 if __name__ == '__main__':
-    os.makedirs('./newickSample/size2')
-    generateNewickTests(2, './newickSample/size2')
-    os.makedirs('./newickSample/size3')
-    generateNewickTests(3, './newickSample/size3')
-    os.makedirs('./newickSample/size4')
-    generateNewickTests(4, './newickSample/size4')
-    os.makedirs('./newickSample/size5')
-    generateNewickTests(5, './newickSample/size5')
+    for tree_size in [2, 3, 4, 5, 6]:
+        targetFolder = './newickSample/size%d' % tree_size
+        os.makedirs(targetFolder)
+        generateNewickTests(tree_size, targetFolder)

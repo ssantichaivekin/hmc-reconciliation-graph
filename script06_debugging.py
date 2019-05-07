@@ -1,4 +1,9 @@
-from script05_test_correctness_new import *
+import DTLReconGraph
+import ReconciliationVisualization
+import Diameter
+import HistogramAlg
+import HistogramAlgTools
+from Histogram import Histogram
 
 if __name__ == '__main__' :
     import pprint
@@ -6,10 +11,10 @@ if __name__ == '__main__' :
 
     file_id = 936
     edge_species_tree, edge_gene_tree, dtl_recon_graph, mpr_count, best_roots = DTLReconGraph.reconcile("./newickSample/size5/test-size5-no%d.newick" % file_id, 2, 4, 2)
-    assert(mpr_count == sum(1 for _ in enumerate_recon_trees(dtl_recon_graph, best_roots)))
+    assert(mpr_count == sum(1 for _ in HistogramAlgTools.BF_enumerate_MPRs(dtl_recon_graph, best_roots)))
 
-    brute_force_histogram = brute_force_find_histogram(dtl_recon_graph, best_roots)
-    brute_force_diameter = brute_force_find_diameter(dtl_recon_graph, best_roots)
+    brute_force_histogram = HistogramAlgTools.BF_find_histogram(dtl_recon_graph, best_roots)
+    brute_force_diameter = HistogramAlgTools.BF_find_diameter(dtl_recon_graph, best_roots)
 
     # find normal diameter
     # The gene tree needs to be in node format, not edge format, so we find that now.

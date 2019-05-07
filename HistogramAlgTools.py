@@ -1,0 +1,136 @@
+'''
+Implements brute force algorithm to calculate the diameter
+and histogram of a reconciliation graph. I use this to compare
+the results from the DP algorithm.
+
+Author: Santi Santichaivekin
+'''
+
+from Histogram import Histogram
+
+def eventNodeType(eventNode):
+    '''
+    Returns 'S', 'T', 'D', L', or 'C'
+    'S': speciation
+    'D': duplication
+    'T': transfer
+    'L': loss
+    'C': end event
+    '''
+    return eventNode[0]
+
+def firstChild(eventNode):
+    # ['T', ('p3', 'h2'), ('p4', 'h4'), 0.5]
+    # returns a mapping node
+    assert(eventNode[1][0] and eventNode[1][1])
+    return eventNode[1]
+
+def secondChild(eventNode):
+    # ['T', ('p3', 'h2'), ('p4', 'h4'), 0.5]
+    # ['C', (None, None), (None, None), 1.0]
+    # returns a mapping node
+    # do not use on null entities
+    assert(eventNode[2][0] and eventNode[2][1])
+    return eventNode[2]
+
+def BF_enumerate_partial_MPRs(recongraph, mapping_node) :
+    '''
+    Given a reconciliation graph and a mapping node, enumerate all
+    the MPRs in the reconciliation graph starting at the mapping node.
+    '''
+    for event_node in recongraph[mapping_node]:
+        if eventNodeType(event_node) in ['S', 'T', 'D']:
+            for left_mapping_dict in BF_enumerate_partial_MPRs(recongraph, firstChild(event_node)):
+                for right_mapping_dict in BF_enumerate_partial_MPRs(recongraph, secondChild(event_node)):
+                    recon_tree = {}
+                    recon_tree[mapping_node] = [event_node]
+                    recon_tree.update(left_mapping_dict)
+                    recon_tree.update(right_mapping_dict)
+                    yield recon_tree
+        elif eventNodeType(event_node) == 'L':
+            for child_mapping_dict in BF_enumerate_partial_MPRs(recongraph, firstChild(event_node)):
+                recon_tree = {}
+                recon_tree[mapping_node] = [event_node]
+                recon_tree.update(child_mapping_dict)
+                yield recon_tree
+        elif eventNodeType(event_node) == 'C':
+            recon_tree = {}
+            recon_tree[mapping_node] = [event_node]
+            yield recon_tree
+        
+
+def BF_enumerate_MPRs(recongraph, roots) :
+    '''
+    Given a reconciliation graph, enumerate every reconciliation trees in the graph.
+    Note that reconciliation trees are just like reconciliation graph, but each mapping
+    node can only have one event node child.
+    '''
+    for root in roots:
+        for recon_tree in BF_enumerate_partial_MPRs(recongraph, root):
+            yield recon_tree, root
+
+def recon_trees_diff(recon_tree_A, recon_tree_B):
+    '''
+    Return the symmetric set difference between
+    the two trees.
+    '''
+    diff_count = 0
+    for mapping_node_key in recon_tree_A:
+        if mapping_node_key not in recon_tree_B :
+            diff_count += 1
+        elif recon_tree_A[mapping_node_key] != recon_tree_B[mapping_node_key] :
+            diff_count += 1
+    
+    for mapping_node_key in recon_tree_B:
+        if mapping_node_key not in recon_tree_A :
+            diff_count += 1
+        elif recon_tree_A[mapping_node_key] != recon_tree_B[mapping_node_key] :
+            diff_count += 1
+    
+    return diff_count
+
+def count_mpr_pairs(hist) :
+    '''
+    Total number of reconciliation pairs in the histogram.
+    Note that this include self-pair (a, a).
+    '''
+    total = 0
+    hist_dict = hist.histogram_dict
+    for key in hist_dict :
+        if key >= 1:
+            total += hist_dict[key]
+    return total
+
+def calculate_n_pairs(m) :
+    '''
+    If there is m diffeerent MPRs in the reconciliation
+    graph, there should be m*(m-1)/2 different pairs in
+    the graph.
+    '''
+    return m*(m-1)/2
+
+def BF_find_histogram(recongraph, roots) :
+    '''
+    Given a reconciliation graph, find the histogram of the graph via enumreating
+    all of its reconciliation trees.
+    '''
+    hist_dict = {}
+    recon_trees = [recon_tree for recon_tree, root in BF_enumerate_MPRs(recongraph, roots)]
+    for recon_tree_i in range(0, len(recon_trees)):
+        for recon_tree_j in range(recon_tree_i+1):
+            recon_tree_A = recon_trees[recon_tree_i]
+            recon_tree_B = recon_trees[recon_tree_j]
+            diff_count = recon_trees_diff(recon_tree_A, recon_tree_B)
+            if diff_count not in hist_dict:
+                hist_dict[diff_count] = 0
+            hist_dict[diff_count] += 1
+    
+    return Histogram(hist_dict)
+
+def BF_find_diameter(recongraph, roots) :
+    '''
+    Given a reconciliation graph, find the diameter for the graph via enumerating
+    all of its reconcilation trees.
+    '''
+    hist_dict = BF_find_histogram(recongraph, roots).histogram_dict
+    return max(hist_dict.keys())

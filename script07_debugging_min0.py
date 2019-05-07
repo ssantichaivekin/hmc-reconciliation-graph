@@ -1,4 +1,9 @@
-from script05_test_correctness_new import *
+import DTLReconGraph
+import ReconciliationVisualization
+import Diameter
+import HistogramAlg
+import HistogramAlgTools
+from Histogram import Histogram
 
 if __name__ == '__main__' :
     import pprint
@@ -15,7 +20,7 @@ if __name__ == '__main__' :
     diameter_alg_hist = HistogramAlg.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
                                         True, False)
 
-    brute_force_hist = brute_force_find_histogram(dtl_recon_graph, best_roots)
+    brute_force_hist = HistogramAlgTools.BF_find_histogram(dtl_recon_graph, best_roots)
     if brute_force_hist != diameter_alg_hist :
         outname = './errorTrees/no5-id%d.png' % file_id
         ReconciliationVisualization.visualizeAndSave(dtl_recon_graph, outname)
