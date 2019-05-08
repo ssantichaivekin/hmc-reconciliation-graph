@@ -57,7 +57,44 @@ def BF_enumerate_partial_MPRs(recongraph, mapping_node) :
             recon_tree = {}
             recon_tree[mapping_node] = [event_node]
             yield recon_tree
-        
+
+def BF_enter_hist(recongraph, uA, uB):
+    '''
+    Given a reconciliation graph and two mapping nodes,
+    find the histogram that embodies the different pairs 
+    of partial MPRs between uA and uB.
+    '''
+    # If it's the same node uA == uB, then for each (a, b) pair of MPR,
+    # there is also a (b, a) pair. Make sure not to count them
+    # twice. This does not occur in the case where the mapping
+    # node is different.
+    # TODO: check the implementation, maybe it is making this exact problem.
+    if uA == uB:
+        hist_dict = {}
+        recon_trees = list(BF_enumerate_partial_MPRs(recongraph, uA))
+        for recon_tree_i in range(0, len(recon_trees)):
+            for recon_tree_j in range(recon_tree_i+1):
+                recon_tree_A = recon_trees[recon_tree_i]
+                recon_tree_B = recon_trees[recon_tree_j]
+                diff_count = recon_trees_diff(recon_tree_A, recon_tree_B)
+                if diff_count not in hist_dict:
+                    hist_dict[diff_count] = 0
+                hist_dict[diff_count] += 1
+        return Histogram(hist_dict)
+    else: # uA != uB
+        hist_dict = {}
+        uA_recon_trees = list(BF_enumerate_partial_MPRs(recongraph, uA))
+        uB_recon_trees = list(BF_enumerate_partial_MPRs(recongraph, uB))
+        for recon_tree_A in uA_recon_trees:
+            for recon_tree_B in uB_recon_trees:
+                diff_count = recon_trees_diff(recon_tree_A, recon_tree_B)
+                if diff_count not in hist_dict:
+                    hist_dict[diff_count] = 0
+                hist_dict[diff_count] += 1
+        return Histogram(hist_dict)
+
+def BF_exit_hist(recongraph, uA, uB):
+    return NotImplementedError("Brute force exit calculation not yet implemented")
 
 def BF_enumerate_MPRs(recongraph, roots) :
     '''
@@ -134,3 +171,31 @@ def BF_find_diameter(recongraph, roots) :
     '''
     hist_dict = BF_find_histogram(recongraph, roots).histogram_dict
     return max(hist_dict.keys())
+
+class BFVerifier:
+    '''
+    The brute force verifier is initialized once with the
+    reconciliation graph. Then, you can verify the histogram
+    algorithm by calling the verifier.
+    '''
+    def __init__(self, recongraph, error_func=None):
+        # The error function is a two argument function
+        # lambda (alg_hist, bf_hist, message) that deals with the error
+        self.recongraph = recongraph
+        def print_hist_diff(alg_hist, bf_hist, message):
+            print message
+            print "Histogram from Algorithm  :", alg_hist
+            print "Histogram from Brute Force:", bf_hist
+        self.error_func = print_hist_diff
+    
+    def verify_enter(self, uA, uB, alg_enter_hist):
+        bf_hist = BF_enter_hist(self.recongraph, uA, uB)
+        if alg_enter_hist != bf_hist:
+            message = "Failed enter %s %s" % (str(uA), str(uB))
+            self.error_func(alg_enter_hist, bf_hist, message)
+    
+    def verify_exit(self, uA, uB, alg_exit_hist):
+        bf_hist = BF_exit_hist(self.recongraph, uA, uB)
+        if alg_exit_hist != bf_hist:
+            message = "Failed exit %s %s" % (str(uA), str(uB))
+            self.error_func(alg_enter_hist, bf_hist, message)

@@ -50,7 +50,7 @@ class Histogram:
                 new_dict[key] += hist.histogram_dict[key]
         return Histogram(new_dict)
     
-    def product_combine(self, other, doubleNonzeroEntry):
+    def product_combine(self, other, doubleBothNonzeroEntry, doubleAnyNonzeroEntry):
         '''
         Generally, combine would work like this:
         {0:1} * {3:1}  => {3:1}
@@ -73,12 +73,24 @@ class Histogram:
                 new_key = old_key_A + old_key_B
                 if new_key not in new_dict:
                     new_dict[new_key] = 0
-                if doubleNonzeroEntry and old_key_A != 0 and old_key_B != 0:
+                if doubleAnyNonzeroEntry and (old_key_A != 0 or old_key_B != 0):
+                    new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B] * 2
+                elif doubleBothNonzeroEntry and old_key_A != 0 and old_key_B != 0:
                     new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B] * 2
                 else:
                     new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B]
 
+        return Histogram(new_dict)
 
+    def double_nonzero_entry(self):
+        '''
+        Return a new histogram with its nonzero entry
+        doubled.
+        '''
+        new_dict = self.histogram_dict.copy()
+        for key in new_dict:
+            if key != 0:
+                new_dict[key] *= 2
         return Histogram(new_dict)
     
     def __eq__(self, other):
@@ -142,6 +154,7 @@ if __name__ == '__main__':
         assert(new_hist.histogram_dict == {0:1, 2:2, 3:3, 10:1})
 
     def testProduct1():
+        # TODO: update test to reflect new product function
         histA = Histogram(0)
         histB = Histogram(None)
         new_hist = histA * histB
@@ -151,6 +164,7 @@ if __name__ == '__main__':
         assert(new_hist.histogram_dict == {})
     
     def testProduct2():
+        # TODO: update test to reflect new product function
         histA = Histogram({0:1, 2:1, 3:2})
         histB = Histogram({2:1, 3:1, 5:1})
         new_hist = histA * histB

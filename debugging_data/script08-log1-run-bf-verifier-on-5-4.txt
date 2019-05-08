@@ -1,13 +1,129 @@
 === Mismatch of tree size 4 ===
 === Mismatch of tree size 5 ===
+ID =  0
+mpr 1
+ID =  1
+mpr 1
+ID =  2
+mpr 2
+ID =  3
+mpr 2
+ID =  4
+mpr 2
+ID =  5
+mpr 2
+ID =  6
+mpr 2
+ID =  7
+mpr 2
+ID =  8
+mpr 1
+ID =  9
+mpr 1
+ID =  10
+mpr 1
+ID =  11
+mpr 1
+ID =  12
+mpr 2
+ID =  13
+mpr 2
+ID =  14
+mpr 6
+Failed enter ('n2', 'm4') ('n2', 'm2')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 2, 7: 2}
+Histogram from Brute Force: {1: 3, 7: 3, 5: 3, 9: 3}
+Failed enter ('n2', 'm2') ('n2', 'm4')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 2, 7: 2}
+Histogram from Brute Force: {1: 3, 7: 3, 5: 3, 9: 3}
+ID =  15
+mpr 6
+Failed enter ('n2', 'm4') ('n2', 'm2')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 2, 7: 2}
+Histogram from Brute Force: {1: 3, 7: 3, 5: 3, 9: 3}
+Failed enter ('n2', 'm2') ('n2', 'm4')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 2, 7: 2}
+Histogram from Brute Force: {1: 3, 7: 3, 5: 3, 9: 3}
 ID =  16
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm6') ('n2', 'm2')
+Histogram from Algorithm  : {8: 2, 2: 2, 6: 3}
+Histogram from Brute Force: {8: 2, 2: 2, 6: 4}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm2')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 1, 7: 3}
+Histogram from Brute Force: {1: 3, 7: 4, 5: 2, 9: 3}
+Failed enter ('n2', 'm2') ('n2', 'm6')
+Histogram from Algorithm  : {8: 2, 2: 2, 6: 3}
+Histogram from Brute Force: {8: 2, 2: 2, 6: 4}
+Failed enter ('n2', 'm2') ('n2', 'm4')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 1, 7: 3}
+Histogram from Brute Force: {1: 3, 7: 4, 5: 2, 9: 3}
+Failed enter ('n0', 'm1') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm1') ('n0', 'm0')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm1')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm1')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
 ID =  16
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 3, 8: 11, 10: 5} pairs:  28
 Diameter Alg:  {0: 8, 2: 2, 4: 7, 6: 2, 8: 9, 10: 5} pairs:  25
 ID =  17
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm6') ('n2', 'm2')
+Histogram from Algorithm  : {8: 2, 2: 2, 6: 3}
+Histogram from Brute Force: {8: 2, 2: 2, 6: 4}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm2')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 1, 7: 3}
+Histogram from Brute Force: {1: 3, 7: 4, 5: 2, 9: 3}
+Failed enter ('n2', 'm2') ('n2', 'm6')
+Histogram from Algorithm  : {8: 2, 2: 2, 6: 3}
+Histogram from Brute Force: {8: 2, 2: 2, 6: 4}
+Failed enter ('n2', 'm2') ('n2', 'm4')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 1, 7: 3}
+Histogram from Brute Force: {1: 3, 7: 4, 5: 2, 9: 3}
+Failed enter ('n0', 'm1') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm1') ('n0', 'm0')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm1')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm1')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
 ID =  17
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 3, 8: 11, 10: 5} pairs:  28
@@ -18,16 +134,100 @@ ID =  19
 mpr 2
 ID =  20
 mpr 6
+Failed enter ('n2', 'm4') ('n2', 'm2')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 2, 7: 2}
+Histogram from Brute Force: {1: 3, 7: 3, 5: 3, 9: 3}
+Failed enter ('n2', 'm2') ('n2', 'm4')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 2, 7: 2}
+Histogram from Brute Force: {1: 3, 7: 3, 5: 3, 9: 3}
 ID =  21
 mpr 6
+Failed enter ('n2', 'm4') ('n2', 'm2')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 2, 7: 2}
+Histogram from Brute Force: {1: 3, 7: 3, 5: 3, 9: 3}
+Failed enter ('n2', 'm2') ('n2', 'm4')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 2, 7: 2}
+Histogram from Brute Force: {1: 3, 7: 3, 5: 3, 9: 3}
 ID =  22
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm6') ('n2', 'm2')
+Histogram from Algorithm  : {8: 2, 2: 2, 6: 3}
+Histogram from Brute Force: {8: 2, 2: 2, 6: 4}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm2')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 1, 7: 3}
+Histogram from Brute Force: {1: 3, 7: 4, 5: 2, 9: 3}
+Failed enter ('n2', 'm2') ('n2', 'm6')
+Histogram from Algorithm  : {8: 2, 2: 2, 6: 3}
+Histogram from Brute Force: {8: 2, 2: 2, 6: 4}
+Failed enter ('n2', 'm2') ('n2', 'm4')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 1, 7: 3}
+Histogram from Brute Force: {1: 3, 7: 4, 5: 2, 9: 3}
+Failed enter ('n0', 'm1') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm1') ('n0', 'm0')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm1')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm1')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
 ID =  22
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 3, 8: 11, 10: 5} pairs:  28
 Diameter Alg:  {0: 8, 2: 2, 4: 7, 6: 2, 8: 9, 10: 5} pairs:  25
 ID =  23
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm6') ('n2', 'm2')
+Histogram from Algorithm  : {8: 2, 2: 2, 6: 3}
+Histogram from Brute Force: {8: 2, 2: 2, 6: 4}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm2')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 1, 7: 3}
+Histogram from Brute Force: {1: 3, 7: 4, 5: 2, 9: 3}
+Failed enter ('n2', 'm2') ('n2', 'm6')
+Histogram from Algorithm  : {8: 2, 2: 2, 6: 3}
+Histogram from Brute Force: {8: 2, 2: 2, 6: 4}
+Failed enter ('n2', 'm2') ('n2', 'm4')
+Histogram from Algorithm  : {9: 2, 1: 3, 5: 1, 7: 3}
+Histogram from Brute Force: {1: 3, 7: 4, 5: 2, 9: 3}
+Failed enter ('n0', 'm1') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm1') ('n0', 'm0')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm1')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm1')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 3, 10: 2, 4: 2}
+Histogram from Brute Force: {8: 4, 10: 2, 4: 2}
 ID =  23
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 3, 8: 11, 10: 5} pairs:  28
@@ -66,8 +266,20 @@ ID =  39
 mpr 3
 ID =  40
 mpr 3
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
 ID =  41
 mpr 3
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
 ID =  42
 mpr 2
 ID =  43
@@ -78,8 +290,20 @@ ID =  45
 mpr 3
 ID =  46
 mpr 3
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
 ID =  47
 mpr 3
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
 ID =  48
 mpr 1
 ID =  49
@@ -498,12 +722,60 @@ ID =  255
 mpr 6
 ID =  256
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n0', 'm2') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm2') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm2')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm2')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
 ID =  256
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
 Diameter Alg:  {0: 8, 2: 2, 4: 7, 6: 4, 8: 8, 10: 4} pairs:  25
 ID =  257
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n0', 'm2') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm2') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm2')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm2')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
 ID =  257
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
@@ -518,12 +790,60 @@ ID =  261
 mpr 6
 ID =  262
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n0', 'm2') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm2') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm2')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm2')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
 ID =  262
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
 Diameter Alg:  {0: 8, 2: 2, 4: 7, 6: 4, 8: 8, 10: 4} pairs:  25
 ID =  263
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n0', 'm2') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm2') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm2')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm2')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
 ID =  263
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
@@ -562,12 +882,60 @@ ID =  279
 mpr 6
 ID =  280
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n0', 'm3') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm3') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm3')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm3')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
 ID =  280
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
 Diameter Alg:  {0: 8, 2: 2, 4: 7, 6: 4, 8: 8, 10: 4} pairs:  25
 ID =  281
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n0', 'm3') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm3') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm3')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm3')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
 ID =  281
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
@@ -582,12 +950,60 @@ ID =  285
 mpr 6
 ID =  286
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n0', 'm3') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm3') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm3')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm3')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
 ID =  286
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
 Diameter Alg:  {0: 8, 2: 2, 4: 7, 6: 4, 8: 8, 10: 4} pairs:  25
 ID =  287
 mpr 8
+Failed enter ('n2', 'm6') ('n2', 'm4')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n2', 'm4') ('n2', 'm6')
+Histogram from Algorithm  : {1: 2, 5: 2, 7: 1}
+Histogram from Brute Force: {1: 2, 5: 3, 7: 1}
+Failed enter ('n0', 'm3') ('n0', 'm6')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm3') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm6') ('n0', 'm3')
+Histogram from Algorithm  : {2: 2, 6: 1}
+Histogram from Brute Force: {2: 2, 6: 2}
+Failed enter ('n0', 'm6') ('n0', 'm0')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm3')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
+Failed enter ('n0', 'm0') ('n0', 'm6')
+Histogram from Algorithm  : {8: 2, 10: 1, 4: 2}
+Histogram from Brute Force: {8: 3, 10: 1, 4: 2}
 ID =  287
 Expected pairs  28
 Brute Force:  {0: 8, 2: 2, 4: 7, 6: 5, 8: 10, 10: 4} pairs:  28
@@ -1966,16 +2382,8 @@ ID =  973
 mpr 1
 ID =  974
 mpr 6
-ID =  974
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  975
 mpr 6
-ID =  975
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  976
 mpr 5
 ID =  977
@@ -1986,16 +2394,8 @@ ID =  979
 mpr 1
 ID =  980
 mpr 6
-ID =  980
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  981
 mpr 6
-ID =  981
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  982
 mpr 5
 ID =  983
@@ -2030,16 +2430,8 @@ ID =  997
 mpr 1
 ID =  998
 mpr 6
-ID =  998
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  999
 mpr 6
-ID =  999
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1000
 mpr 5
 ID =  1001
@@ -2050,16 +2442,8 @@ ID =  1003
 mpr 1
 ID =  1004
 mpr 6
-ID =  1004
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1005
 mpr 6
-ID =  1005
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1006
 mpr 5
 ID =  1007
@@ -2118,16 +2502,8 @@ ID =  1033
 mpr 1
 ID =  1034
 mpr 6
-ID =  1034
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1035
 mpr 6
-ID =  1035
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1036
 mpr 5
 ID =  1037
@@ -2138,16 +2514,8 @@ ID =  1039
 mpr 1
 ID =  1040
 mpr 6
-ID =  1040
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1041
 mpr 6
-ID =  1041
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1042
 mpr 5
 ID =  1043
@@ -2182,16 +2550,8 @@ ID =  1057
 mpr 1
 ID =  1058
 mpr 6
-ID =  1058
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1059
 mpr 6
-ID =  1059
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1060
 mpr 5
 ID =  1061
@@ -2202,16 +2562,8 @@ ID =  1063
 mpr 1
 ID =  1064
 mpr 6
-ID =  1064
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1065
 mpr 6
-ID =  1065
-Expected pairs  15
-Brute Force:  {0: 6, 8: 7, 10: 4, 4: 4} pairs:  15
-Diameter Alg:  {0: 6, 8: 6, 10: 4, 4: 4} pairs:  14
 ID =  1066
 mpr 5
 ID =  1067
