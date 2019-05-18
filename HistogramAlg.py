@@ -186,10 +186,10 @@ def calculate_hist_both_exit(zero_loss, enter_table, u, gene_tree, uA, dtl_recon
                 doubleNonzeroEntry = uA == uB and e_a == e_b
                 this_hist = left_entry.product_combine(right_entry, doubleNonzeroEntry)
                 # TODO: I think you also have to check the original node
-                #       in addition to the event (?) (yes, see line 170)
-                #       I think this has been working just by pure luck!!!
-                # It should be, if the event OR the original node mismatches (See SIZE4, ID2, 242)
-                if e_a != e_b:
+                #       in addition to the event. Please recheck whether this is the case
+                #       In either case, this is non-trivial and there should be a comment
+                #       explaning it.
+                if e_a != e_b: # change to "uA == uB and e_a != e_b"?
                     this_hist = this_hist << (cost(e_a, zero_loss) + cost(e_b, zero_loss))
                 else:
                     this_hist = this_hist << intersect_cost(0)

@@ -1,11 +1,5 @@
 '''
-Test the correct of the current implementation of maximum distance reconciliation.
-We do this by assuming that the DP algorithm generates a valid reconciliation graph,
-then we use the diamater algorithm to find the max distance (diameter) among the 
-reconciliation trees in that reconciliation graph. We then compare the max distance
-which is calculated by the algorithm with the max distance that is computed by 
-enumerating all the reconciliation trees in the graph, finding the pairwise distance
-of each.
+This script is deprecated. Please refer to script09_test_refactor instead.
 '''
 
 import DTLReconGraph

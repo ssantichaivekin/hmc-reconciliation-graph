@@ -1,9 +1,8 @@
-# Histogram class for Histogram Algorithm
-#
-# Extension of the diameter algorithm.
-#
-# Author: Santi Santichaivekin (working under Ran Libeskind-Hadas)
-
+'''
+Histogram class for Histogram Algorithm
+Extension of the diameter algorithm.
+Author: Santi Santichaivekin (working under Ran Libeskind-Hadas)
+'''
 
 class Histogram:
     def __init__(self, init):
@@ -40,6 +39,17 @@ class Histogram:
         new_hist = Histogram.sum([self, other])
         return new_hist
     
+    def subtract(self, other):
+        '''
+        Subtract the count of self from another.
+        '''
+        new_hist = self.histogram_dict.copy()
+        other_hist = other.histogram_dict
+        for key in other_hist:
+            new_hist[key] -= other_hist[key]
+            assert new_hist[key] > 0
+        return Histogram(new_hist)
+
     @staticmethod
     def sum(hist_list):
         new_dict = {}
@@ -60,6 +70,7 @@ class Histogram:
         the same mapping node, we multiply the number of
         histograms by 2 if the indeces are not 0.
 
+        #TODO: maybe rename to convolusion, rewrite the test, rewrite the docstring
         '''
         new_dict = {}
 
@@ -104,6 +115,9 @@ class Histogram:
     
     def __add__(self, other):
         return self.combine(other)
+    
+    def __sub__(self, other):
+        return self.subtract(other)
     
     def __mul__(self, other):
         raise DeprecationWarning("Use self.product_combine(other, isSameMappingNode) instead")

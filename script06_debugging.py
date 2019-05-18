@@ -1,3 +1,7 @@
+'''
+This script is deprecated. Please refer to script09_test_refactor instead.
+'''
+
 import DTLReconGraph
 import ReconciliationVisualization
 import Diameter

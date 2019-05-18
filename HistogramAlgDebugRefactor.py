@@ -184,14 +184,12 @@ def calculate_hist_both_exit(zero_loss, enter_table, u, gene_tree, uA, dtl_recon
                 # supersede this one
                 left_entry = enter_table[child1][u1A][u1B]
                 right_entry = enter_table[child2][u2A][u2B]
-                doubleBothNonzeroEntry = uA == uB and e_a == e_b
+                # TODO: I think there are many cases for this and this part of the code
+                #       should be written with mroe clarity.
+                doubleBothNonzeroEntry = (uA == uB and e_a == e_b) or (u1A == u1B or u2A == u2B)
                 doubleAnyNonzeroEntry = uA != uB and u1A == u1B and u2A == u2B
                 this_hist = left_entry.product_combine(
                     right_entry, doubleBothNonzeroEntry, doubleAnyNonzeroEntry)
-                # TODO: I think you also have to check the original node
-                #       in addition to the event (?) (yes, see line 170)
-                #       I think this has been working just by pure luck!!!
-                # It should be, if the event OR the original node mismatches (See SIZE4, ID2, 242)
                 if e_a != e_b:
                     this_hist = this_hist << (cost(e_a, zero_loss) + cost(e_b, zero_loss))
                 else:
@@ -216,15 +214,19 @@ def calculate_incomparable_enter_hist(zero_loss, enter_table, u, uA, uA_loss_eve
     :param hist_both_exit:      The histogram of the double-exit that was previously calculated for uA and uB
     """
     hists = [hist_both_exit]
+    lost_hists = []
 
     # We add up all of the hists for both uA's and uB's loss events.
     for event in uA_loss_events:
         a_child = event[1][1]
-        hists += [enter_table[u][(u, a_child)][uB] << cost(event, zero_loss)]
+        hists.append(enter_table[u][(u, a_child)][uB] << cost(event, zero_loss))
     for event in uB_loss_events:
         b_child = event[1][1]
-        hists += [enter_table[u][uA][(u, b_child)] << cost(event, zero_loss)]
-    return Histogram.sum(hists)
+        hists.append(enter_table[u][uA][(u, b_child)] << cost(event, zero_loss))
+    for loss_event_A, loss_event_B in product(uA_loss_events, uB_loss_events):
+        loss_cost = cost(loss_event_A, zero_loss) + cost(loss_event_B, zero_loss)
+        lost_hists.append(enter_table[u][(u, a_child)][(u, b_child)] << loss_cost)
+    return Histogram.sum(hists) - Histogram.sum(lost_hists)
 
 
 def calculate_equal_enter_hist(zero_loss, enter_table, u, uA, uA_loss_events, uB, uB_loss_events,

@@ -64,11 +64,6 @@ def BF_enter_hist(recongraph, uA, uB):
     find the histogram that embodies the different pairs 
     of partial MPRs between uA and uB.
     '''
-    # If it's the same node uA == uB, then for each (a, b) pair of MPR,
-    # there is also a (b, a) pair. Make sure not to count them
-    # twice. This does not occur in the case where the mapping
-    # node is different.
-    # TODO: check the implementation, maybe it is making this exact problem.
     if uA == uB:
         hist_dict = {}
         recon_trees = list(BF_enumerate_partial_MPRs(recongraph, uA))
@@ -184,8 +179,8 @@ class BFVerifier:
         self.recongraph = recongraph
         def print_hist_diff(alg_hist, bf_hist, message):
             print message
-            print "Histogram from Algorithm  :", alg_hist
             print "Histogram from Brute Force:", bf_hist
+            print "Histogram from Algorithm  :", alg_hist
         self.error_func = print_hist_diff
     
     def verify_enter(self, uA, uB, alg_enter_hist):
