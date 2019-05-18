@@ -1,3 +1,7 @@
+'''
+This script is deprecated. Please refer to script09_test_refactor instead.
+'''
+
 from script03_test_correctness_orig import *
 import pprint
 

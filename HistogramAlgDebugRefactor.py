@@ -3,6 +3,7 @@
 from collections import OrderedDict
 from itertools import product
 from Histogram import Histogram
+from HistogramAlgTools import BFVerifier
 
 # def reformat_tree(tree, root):
 #     """A recursive function that changes the format of a (species or gene) tree from edge to vertex, as described
@@ -183,11 +184,12 @@ def calculate_hist_both_exit(zero_loss, enter_table, u, gene_tree, uA, dtl_recon
                 # supersede this one
                 left_entry = enter_table[child1][u1A][u1B]
                 right_entry = enter_table[child2][u2A][u2B]
-                this_hist = left_entry * right_entry
-                # TODO: I think you also have to check the original node
-                #       in addition to the event (?) (yes, see line 170)
-                #       I think this has been working just by pure luck!!!
-                # It should be, if the event OR the original node mismatches (See SIZE4, ID2, 242)
+                # TODO: I think there are many cases for this and this part of the code
+                #       should be written with mroe clarity.
+                doubleBothNonzeroEntry = (uA == uB and e_a == e_b) or (u1A == u1B or u2A == u2B)
+                doubleAnyNonzeroEntry = uA != uB and u1A == u1B and u2A == u2B
+                this_hist = left_entry.product_combine(
+                    right_entry, doubleBothNonzeroEntry, doubleAnyNonzeroEntry)
                 if e_a != e_b:
                     this_hist = this_hist << (cost(e_a, zero_loss) + cost(e_b, zero_loss))
                 else:
@@ -212,15 +214,19 @@ def calculate_incomparable_enter_hist(zero_loss, enter_table, u, uA, uA_loss_eve
     :param hist_both_exit:      The histogram of the double-exit that was previously calculated for uA and uB
     """
     hists = [hist_both_exit]
+    lost_hists = []
 
     # We add up all of the hists for both uA's and uB's loss events.
     for event in uA_loss_events:
         a_child = event[1][1]
-        hists += [enter_table[u][(u, a_child)][uB] << cost(event, zero_loss)]
+        hists.append(enter_table[u][(u, a_child)][uB] << cost(event, zero_loss))
     for event in uB_loss_events:
         b_child = event[1][1]
-        hists += [enter_table[u][uA][(u, b_child)] << cost(event, zero_loss)]
-    return Histogram.sum(hists)
+        hists.append(enter_table[u][uA][(u, b_child)] << cost(event, zero_loss))
+    for loss_event_A, loss_event_B in product(uA_loss_events, uB_loss_events):
+        loss_cost = cost(loss_event_A, zero_loss) + cost(loss_event_B, zero_loss)
+        lost_hists.append(enter_table[u][(u, a_child)][(u, b_child)] << loss_cost)
+    return Histogram.sum(hists) - Histogram.sum(lost_hists)
 
 
 def calculate_equal_enter_hist(zero_loss, enter_table, u, uA, uA_loss_events, uB, uB_loss_events,
@@ -307,7 +313,11 @@ def calculate_ancestral_enter_hist(zero_loss, is_swapped, enter_table, u, uA, uA
         enter_hists = [exit_table_a[u][uA][uB]]
         for event in uA_loss_events:
             a_child = event[1][1]
-            enter_hists += [enter_table[u][(u, a_child)][uB] << cost(event, zero_loss)]
+            if (u, a_child) == uB:
+                event_enter = enter_table[u][(u, a_child)][uB].double_nonzero_entry()
+            else:
+                event_enter = enter_table[u][(u, a_child)][uB]
+            enter_hists += [event_enter << cost(event, zero_loss)]
         return Histogram.sum(enter_hists)
     else:
         # uB is an ancestor to uA
@@ -326,7 +336,11 @@ def calculate_ancestral_enter_hist(zero_loss, is_swapped, enter_table, u, uA, uA
         enter_hists = [exit_table_b[u][uB][uA]]
         for event in uB_loss_events:
             b_child = event[1][1]
-            enter_hists += [enter_table[u][uA][(u, b_child)] << cost(event, zero_loss)]
+            if uA == (u, b_child):
+                event_enter = enter_table[u][uA][(u, b_child)].double_nonzero_entry()
+            else:
+                event_enter = enter_table[u][uA][(u, b_child)]
+            enter_hists += [event_enter << cost(event, zero_loss)]
         return Histogram.sum(enter_hists)
 
 
@@ -365,6 +379,10 @@ def diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph_
     :param zero_loss:           Whether losses should count at all
     :return:                    The diameter of the reconciliation.
     """
+
+    # Use debugging
+    assert(dtl_recon_graph_a == dtl_recon_graph_b)
+    verfier = BFVerifier(dtl_recon_graph_a)
 
     postorder_gene_nodes = list(gene_tree.keys())
     postorder_species_nodes = list(species_tree.keys())
@@ -419,6 +437,7 @@ def diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph_
                                                             uB_loss_events, hist_both_exit, exit_table_a, exit_table_b)
                 else:
                     raise ValueError("Invalid ancestry type '{0}', check calculate_ancestral_table().".format(ancestry))
+                verfier.verify_enter(uA, uB, hist)
                 enter_table[u][uA][uB] = hist
                 if debug:
                     print "{0} -{1}-> {2}, Double-equal\t{3}\Hist:{4}".format(uA, ancestry, uB, hist_both_exit,

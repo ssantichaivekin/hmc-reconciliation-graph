@@ -5,7 +5,7 @@ This script is deprecated. Please refer to script09_test_refactor instead.
 import DTLReconGraph
 import ReconciliationVisualization
 import Diameter
-import HistogramAlg
+import HistogramAlgDebugRefactor
 import HistogramAlgTools
 from Histogram import Histogram
 
@@ -23,7 +23,7 @@ if __name__ == '__main__' :
         gene_tree, gene_tree_root, gene_node_count = Diameter.reformat_tree(edge_gene_tree, "pTop")
 
         species_tree, species_tree_root, species_node_count = Diameter.reformat_tree(edge_species_tree, "hTop")
-        diameter_alg_hist = HistogramAlg.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
+        diameter_alg_hist = HistogramAlgDebugRefactor.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
                                            False, False)
 
         if brute_force_hist != diameter_alg_hist :
@@ -34,7 +34,7 @@ if __name__ == '__main__' :
             print("Diameter Alg: ", diameter_alg_hist)
     # compare size 5
     print("=== Mismatch of tree size 5 ===")
-    for file_id in range(16, 1080):
+    for file_id in range(0, 1080):
         print "ID = ", file_id
         edge_species_tree, edge_gene_tree, dtl_recon_graph, mpr_count, best_roots = DTLReconGraph.reconcile("./newickSample/size5/test-size5-no%d.newick" % file_id, 2, 4, 2)
         assert(mpr_count == sum(1 for _ in HistogramAlgTools.BF_enumerate_MPRs(dtl_recon_graph, best_roots)))
@@ -47,7 +47,7 @@ if __name__ == '__main__' :
         gene_tree, gene_tree_root, gene_node_count = Diameter.reformat_tree(edge_gene_tree, "pTop")
 
         species_tree, species_tree_root, species_node_count = Diameter.reformat_tree(edge_species_tree, "hTop")
-        diameter_alg_hist = HistogramAlg.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
+        diameter_alg_hist = HistogramAlgDebugRefactor.diameter_algorithm(species_tree, gene_tree, gene_tree_root, dtl_recon_graph, dtl_recon_graph,
                                            False, False)
 
         if brute_force_hist != diameter_alg_hist :

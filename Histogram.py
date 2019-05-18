@@ -1,3 +1,9 @@
+'''
+Histogram class for Histogram Algorithm
+Extension of the diameter algorithm.
+Author: Santi Santichaivekin (working under Ran Libeskind-Hadas)
+'''
+
 class Histogram:
     def __init__(self, init):
         '''
@@ -33,6 +39,17 @@ class Histogram:
         new_hist = Histogram.sum([self, other])
         return new_hist
     
+    def subtract(self, other):
+        '''
+        Subtract the count of self from another.
+        '''
+        new_hist = self.histogram_dict.copy()
+        other_hist = other.histogram_dict
+        for key in other_hist:
+            new_hist[key] -= other_hist[key]
+            assert new_hist[key] > 0
+        return Histogram(new_hist)
+
     @staticmethod
     def sum(hist_list):
         new_dict = {}
@@ -43,14 +60,17 @@ class Histogram:
                 new_dict[key] += hist.histogram_dict[key]
         return Histogram(new_dict)
     
-    def product_combine(self, other):
+    def product_combine(self, other, doubleBothNonzeroEntry, doubleAnyNonzeroEntry):
         '''
+        Generally, combine would work like this:
         {0:1} * {3:1}  => {3:1}
         {0:1, 2:1} * {3:1}  => {3:1. 5:1}
         {0:1, 2:1} * {3:1, 5:2}  => {3:1, 5:3, 7:2}
-        #TODO: Update the documentation
-               We multiply the value by 2 if it's not
-               doing anything with a 0 key.
+        However, if the original histograms are from
+        the same mapping node, we multiply the number of
+        histograms by 2 if the indeces are not 0.
+
+        #TODO: maybe rename to convolusion, rewrite the test, rewrite the docstring
         '''
         new_dict = {}
 
@@ -64,11 +84,24 @@ class Histogram:
                 new_key = old_key_A + old_key_B
                 if new_key not in new_dict:
                     new_dict[new_key] = 0
-                if old_key_A == 0 or old_key_B == 0:
-                    new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B]
-                else:
+                if doubleAnyNonzeroEntry and (old_key_A != 0 or old_key_B != 0):
                     new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B] * 2
+                elif doubleBothNonzeroEntry and old_key_A != 0 and old_key_B != 0:
+                    new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B] * 2
+                else:
+                    new_dict[new_key] += old_dict_A[old_key_A] * old_dict_B[old_key_B]
 
+        return Histogram(new_dict)
+
+    def double_nonzero_entry(self):
+        '''
+        Return a new histogram with its nonzero entry
+        doubled.
+        '''
+        new_dict = self.histogram_dict.copy()
+        for key in new_dict:
+            if key != 0:
+                new_dict[key] *= 2
         return Histogram(new_dict)
     
     def __eq__(self, other):
@@ -83,8 +116,11 @@ class Histogram:
     def __add__(self, other):
         return self.combine(other)
     
+    def __sub__(self, other):
+        return self.subtract(other)
+    
     def __mul__(self, other):
-        return self.product_combine(other)
+        raise DeprecationWarning("Use self.product_combine(other, isSameMappingNode) instead")
 
     def __repr__(self):
         return str(self.histogram_dict)
@@ -132,6 +168,7 @@ if __name__ == '__main__':
         assert(new_hist.histogram_dict == {0:1, 2:2, 3:3, 10:1})
 
     def testProduct1():
+        # TODO: update test to reflect new product function
         histA = Histogram(0)
         histB = Histogram(None)
         new_hist = histA * histB
@@ -141,6 +178,7 @@ if __name__ == '__main__':
         assert(new_hist.histogram_dict == {})
     
     def testProduct2():
+        # TODO: update test to reflect new product function
         histA = Histogram({0:1, 2:1, 3:2})
         histB = Histogram({2:1, 3:1, 5:1})
         new_hist = histA * histB
